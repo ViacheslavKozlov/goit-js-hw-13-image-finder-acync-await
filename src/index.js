@@ -28,26 +28,23 @@ function onInput(evt) {
     smoothScrolling();
 }
 
-function getImages() {
-    apiPix.fetchImages().then(data => {
+async function getImages() {
+    const data = await apiPix.fetchImages();
         renderMarkup(data);
         refs.searchBtn.disabled = false;
         refs.loadMoreBtn.classList.remove('is-hidden');
-    })
 }
 
 function renderMarkup({ hits }) {
     refs.gallery.insertAdjacentHTML('beforeend', imageMarkup(hits))
 }
 
-function onClickLoadMore() {
+async function onClickLoadMore() {
     apiPix.incrementPage();
 
-    apiPix.fetchImages()
-        .then(data => {
+    const data = await apiPix.fetchImages();
             renderMarkup(data)
             smoothScrolling();
-        })
 }
 
 function smoothScrolling() {

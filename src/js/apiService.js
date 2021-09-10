@@ -9,7 +9,7 @@ export default class ApiPixabay {
         this.page = 1;
     }
 
-    fetchImages() {
+    async fetchImages() {
         const searchParameters = new URLSearchParams({
             image_type: 'photo',
             orientation: 'horizontal',
@@ -19,13 +19,11 @@ export default class ApiPixabay {
             key: this.#API_KEY,
         });
 
-        return fetch(`${this.BASE_URL}?${searchParameters}`)
-            .then(response => {
+        const response = await fetch(`${this.BASE_URL}?${searchParameters}`);
                 if (response.status === 404) {
                     return Promise.reject('Not found');
                 }
-                return response.json()
-            })
+                return response.json();
     }
     
     incrementPage() {
