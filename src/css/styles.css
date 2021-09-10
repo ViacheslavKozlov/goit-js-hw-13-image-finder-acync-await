@@ -1,0 +1,70 @@
+body {
+    background-color: lightgray;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+}
+
+button.load-more {
+    display: block;
+    margin: 20px auto;
+
+}
+
+button.is-hidden {
+    display: none;
+}
+
+input, button {
+    display: block;
+    margin: 20px 0;
+}
+
+input {
+    margin-right: 20px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -30px -30px 0px;
+}
+
+.photo-card {
+    min-height: 325px;
+    flex-direction: row;
+    flex-basis: calc((100% - 30px) / 3);
+    justify-content: center;
+    margin: 5px;
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.stats-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 15px;
+}
+
+.material-icons {
+    padding-right: 10px;
+}
+
+.material-icons:not(:last-child) {
+    padding-right: 0;
+}
